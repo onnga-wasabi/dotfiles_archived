@@ -8,3 +8,4 @@ zsh scripts/pyenv.sh
 zsh scripts/vim.sh
 
 # select scripts
+#zsh scripts/nvm.sh
