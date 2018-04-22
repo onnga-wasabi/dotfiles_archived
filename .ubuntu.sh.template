@@ -6,11 +6,11 @@ chsh -s /usr/bin/zsh
 sudo apt-get update -y
 sudo apt-get grade -y
 sudo apt-get install curl vim tmux wget gcc make openssl libssl-dev libbz2-dev libreadline-dev libsqlite3-dev -y
-zsh common/prezto.sh
-zsh common/pyenv.sh
-zsh common/vim.sh
+zsh scripts/prezto.sh
+zsh scripts/pyenv.sh
+zsh scripts/vim.sh
 
 # select scripts
-#zsh common/nvm.sh
-#zsh gpu/cuda.sh
-#zsh gpu/cudnnenv.sh
+#zsh scripts/nvm.sh
+#zsh scripts/cuda.sh
+#zsh scripts/cudnnenv.sh
