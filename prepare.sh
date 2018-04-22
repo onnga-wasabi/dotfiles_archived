@@ -10,4 +10,5 @@ if [ ! -e setup.sh ];then
         cp .ubuntu.sh.template setup.sh
         echo 'ubuntu'
     fi
+    ln ~/dotfiles/.tmux.conf ~/.tmux.conf
 fi
