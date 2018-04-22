@@ -4,10 +4,10 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/Users/wasabi/.vim/bundle/neobundle.vim/
+set runtimepath+=~/.vim/bundle/neobundle.vim/
 
 " Required:
-call neobundle#begin(expand('/Users/wasabi/.vim/bundle'))
+call neobundle#begin(expand('~/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
@@ -64,12 +64,20 @@ endfunction
 autocmd FileType python nnoremap <S-f> :call Autopep8()<CR>
 "End autopep8----------------------------------
 
-"Vim plug Scripts------------------------------
-call plug#begin()
-Plug 'iamcco/mathjax-support-for-mkdp'
-Plug 'iamcco/markdown-preview.vim'
-call plug#end()
-"End Vim plug Scripts--------------------------
+" if you wanna use mardown preview, execute below scripts and comment out
+"
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" vim 
+" :PlugInstall
+" :q
+"
+""vim plug scripts------------------------------
+"call plug#begin()
+"Plug 'iamcco/mathjax-support-for-mkdp'
+"Plug 'iamcco/markdown-preview.vim'
+"nmap md :MarkdownPreview<CR>
+"call plug#end()
+""End Vim plug Scripts--------------------------
 
 set number
 set cursorline
@@ -89,7 +97,6 @@ imap <c-b> <Left>
 imap <c-n> <Down>
 imap <c-p> <Up>
 imap <c-f> <Right>
-nmap md :MarkdownPreview<CR>
 
 "python tab
 set tabstop=8

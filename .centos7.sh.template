@@ -1,4 +1,5 @@
 cd `dirname $0`
+sudo yum update -y
 sudo yum install zsh -y
 chsh -s /bin/zsh
 sudo yum -y install curl wget vim tmux gcc zlib-devel bzip2 bzip2-devel readline readline-devel sqlite sqlite-devel openssl openssl-devel
