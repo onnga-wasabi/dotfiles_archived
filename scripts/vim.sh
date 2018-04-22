@@ -4,5 +4,6 @@ sh ~/install.sh
 rm ~/install.sh
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+source ~/.zshrc
 pyenv local 3.6.0
 pip install autopep8
