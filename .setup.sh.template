@@ -1,0 +1,15 @@
+cd `dirname $0`
+if [ `uname` == 'Darwin' ];then
+    cd Mac
+    pwd
+elif [ -e /etc/redhat-release ];then
+    cd centos7
+    pwd
+elif [ -e /etc/system-release ];then
+    cd centos7
+    pwd
+    echo 'ec2'
+else
+    cd ubuntu
+    pwd
+fi

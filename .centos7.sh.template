@@ -1,0 +1,9 @@
+cd `dirname $0`
+sudo yum install zsh -y
+chsh -s /bin/zsh
+sudo yum -y install curl wget vim tmux gcc zlib-devel bzip2 bzip2-devel readline readline-devel sqlite sqlite-devel openssl openssl-devel
+zsh common/prezto.sh
+zsh common/pyenv.sh
+zsh common/vim.sh
+
+# select scripts
