@@ -8,6 +8,6 @@ if [ ! -e setup.sh ];then
         echo 'ec2'
     else
         cp .ubuntu.sh.template setup.sh
-        echo 'ubuntu'
+        echo 'not centos7 or ec2'
     fi
 fi
