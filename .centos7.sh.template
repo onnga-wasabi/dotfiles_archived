@@ -9,7 +9,7 @@ yum -y install neovim
 zsh scripts/prezto.sh
 zsh scripts/pyenv.sh
 zsh scripts/vim.sh
-zsh scripts/tmux.conf
+zsh scripts/tmux.sh
 
 # select scripts
 #zsh scripts/nvm.sh
