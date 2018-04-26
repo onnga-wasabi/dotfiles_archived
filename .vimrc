@@ -1,42 +1,56 @@
-"NeoBundle Scripts-----------------------------
+"dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
 endif
 
-" Required:
-set runtimepath+=~/.vim/bundle/neobundle.vim/
+set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
+let g:python3_host_prog = expand('$HOME') . '/.pyenv/shims/python'
+let s:dein_dir = expand('$HOME/.cache/dein')
 
 " Required:
-call neobundle#begin(expand('~/.vim/bundle'))
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
 
-" Let NeoBundle manage NeoBundle
+  " Let dein manage dein
+  " Required:
+  let s:toml_dir = expand('$HOME/.cache/dein/plugs/')
+  call dein#load_toml(s:toml_dir . 'dein.toml',		{'lazy':0})
+
+  " Add lazy load plugins
+  call dein#load_toml(s:toml_dir . 'lazy_dein.toml',	{'lazy':1})
 " Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" Add or remove your Bundles here:
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'tell-k/vim-autopep8'
-NeoBundle 'itchyny/lightline.vim'
-
-" You can specify revision/branch/tag.
-NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
-
-" Required:
-call neobundle#end()
+  call dein#end()
+  call dein#save_state()
+endif
 
 " Required:
 filetype plugin indent on
+syntax enable
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-"End NeoBundle Scripts-------------------------
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
 
-"autopep8--------------------------------------
+"End dein Scripts-------------------------
+
+"vim-airline config=======================
+
+"use powerline fonts
+let g:airline_powerline_fonts = 1
+
+"enable tabline
+let g:airline#extensions#tabline#enabled = 1
+
+"select the theme
+let g:airline_theme = 'luna'
+"let g:airline_theme = 'powerlineish'
+"let g:airline_theme = 'solarized'
+"let g:airline_theme = 'badwolf'
+
+"end vim-airline config===================
+
+"autopep8 config==========================
 function! Preserve(command)
     " Save the last search.
     let search = @/
@@ -62,109 +76,31 @@ function! Autopep8()
 endfunction
 
 autocmd FileType python nnoremap <S-f> :call Autopep8()<CR>
-"End autopep8----------------------------------
+"end autopep8 config======================
+syntax on 
+colorscheme elflord
 
-" if you wanna use mardown preview, execute below scripts and comment out
-"
-" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-" vim 
-" :PlugInstall
-" :q
-"
-""vim plug scripts------------------------------
-"call plug#begin()
-"Plug 'iamcco/mathjax-support-for-mkdp'
-"Plug 'iamcco/markdown-preview.vim'
-"nmap md :MarkdownPreview<CR>
-"call plug#end()
-""End Vim plug Scripts--------------------------
-
-set number
-set cursorline
+set nu
 set virtualedit=onemore
-set autoindent
 set smartindent
+set autoindent
+set cursorline
 set showmatch
-set laststatus=2
-set wildmode=list:longest
+set pumheight=10
 nnoremap j gj
 nnoremap k gk
-
-set clipboard+=unnamed,unnamedplus,autoselect
-
 inoremap <silent> jj <ESC>
-imap <c-b> <Left>
-imap <c-n> <Down>
-imap <c-p> <Up>
-imap <c-f> <Right>
-
-"python tab
-set tabstop=8
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-set smarttab
-
-syntax on 
-colorscheme koehler
-
-"statusline
-set t_Co=256
-let g:lightline = {
-        \ 'colorscheme': 'wombat',
-        \ 'mode_map': {'c': 'NORMAL'},
-        \ 'active': {
-        \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
-        \ },
-        \ 'component_function': {
-        \   'modified': 'LightlineModified',
-        \   'readonly': 'LightlineReadonly',
-        \   'fugitive': 'LightlineFugitive',
-        \   'filename': 'LightlineFilename',
-        \   'fileformat': 'LightlineFileformat',
-        \   'filetype': 'LightlineFiletype',
-        \   'fileencoding': 'LightlineFileencoding',
-        \   'mode': 'LightlineMode'
-        \ }
-        \ }
-
-function! LightlineModified()
-  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! LightlineReadonly()
-  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
-endfunction
-
-function! LightlineFilename()
-  return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
-        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-        \  &ft == 'unite' ? unite#get_status_string() :
-        \  &ft == 'vimshell' ? vimshell#get_status_string() :
-        \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
-        \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
-endfunction
-
-function! LightlineFugitive()
-  if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
-    return fugitive#head()
-  else
-    return ''
-  endif
-endfunction
-
-function! LightlineFileformat()
-  return winwidth(0) > 70 ? &fileformat : ''
-endfunction
-
-function! LightlineFiletype()
-  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
-endfunction
-
-function! LightlineFileencoding()
-  return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
-endfunction
-
-function! LightlineMode()
-  return winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
+nnoremap , :q<CR>
+nnoremap s <Nop>
+nnoremap ss :split<CR>
+nnoremap sv :vsplit<CR>
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sw <C-w>w
+nnoremap st :tabnew<CR>
+nnoremap sn gt
+nnoremap sp gT
+nnoremap tm :terminal<CR>:set nonumber<CR>i
+tnoremap <ESC> <C-\><C-n>
