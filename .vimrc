@@ -89,8 +89,9 @@ set showmatch
 set pumheight=10
 nnoremap j gj
 nnoremap k gk
-inoremap <silent> jj <ESC>
+inoremap <silent> jj <ESC>l
 nnoremap , :q<CR>
+
 nnoremap s <Nop>
 nnoremap ss :split<CR>
 nnoremap sv :vsplit<CR>
@@ -104,3 +105,5 @@ nnoremap sn gt
 nnoremap sp gT
 nnoremap tm :terminal<CR>:set nonumber<CR>i
 tnoremap <ESC> <C-\><C-n>
+
+nnoremap tt :TagbarToggle<CR>

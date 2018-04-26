@@ -14,6 +14,9 @@ repo = 'vim-airline/vim-airline-themes'
 repo = 'Townk/vim-autoclose'
 
 [[plugins]]
+repo = 'cohama/lexima.vim'
+
+[[plugins]]
 repo = 'Yggdroot/indentLine'
 
 [[plugins]]

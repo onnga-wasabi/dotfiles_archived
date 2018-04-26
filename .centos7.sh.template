@@ -3,7 +3,7 @@ sudo yum update -y
 sudo yum install zsh -y
 chsh -s /bin/zsh
 sudo yum -y install curl wget vim tmux gcc zlib-devel bzip2 bzip2-devel readline readline-devel sqlite sqlite-devel openssl openssl-devel
-yum -y install epel-release
+yum -y install epel-release ctags
 curl -o /etc/yum.repos.d/dperson-neovim-epel-7.repo https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo 
 yum -y install neovim
 zsh scripts/prezto.sh
