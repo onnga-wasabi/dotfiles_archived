@@ -11,6 +11,7 @@ sudo apt-get install neovim -y
 zsh scripts/prezto.sh
 zsh scripts/pyenv.sh
 zsh scripts/vim.sh
+zsh scripts/tmux.conf
 
 # select scripts
 #zsh scripts/nvm.sh
