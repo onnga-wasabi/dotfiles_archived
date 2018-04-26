@@ -7,7 +7,7 @@ sudo apt-get install curl vim tmux wget gcc make openssl libssl-dev libbz2-dev l
 sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt-get update
-sudo apt-get install neovim
+sudo apt-get install neovim -y
 zsh scripts/prezto.sh
 zsh scripts/pyenv.sh
 zsh scripts/vim.sh

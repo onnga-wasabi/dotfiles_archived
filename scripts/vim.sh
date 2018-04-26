@@ -1,15 +1,12 @@
 cd `dirname $0`
-sudo apt-get install software-properties-common
-sudo add-apt-repository ppa:neovim-ppa/stable
-sudo apt-get update
-sudo apt-get install neovim
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-sh ~/installer.sh ~/.cache/dein
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > ~/installer.sh
+sh ~/installer.sh ~/.cache/dein 
 rm ~/installer.sh
-mkdir -p ~/.config/nvim/init.vim
-ln -sf ~/dotfiles/.vimrc ~/.config/nvim/ini.vim
-ln -sf ~/.config/nvim/ini.vim ~/.vimrc
+touch ~/.config/nvim/init.vim
+ln -sfn ~/dotfiles/.vimrc ~/.config/nvim/init.vim
+ln -sfn ~/.config/nvim/init.vim ~/.vimrc
 mkdir -p ~/.cache/dein/plugs
-ln -sf ~/dotfiles/deinplugs ~/.cache/dein/plugs
+ln -sfdn ~/dotfiles/deinplugs/dein.toml ~/.cache/dein/plugs/dein.toml
+ln -sfdn ~/dotfiles/deinplugs/lazy_dein.toml ~/.cache/dein/plugs/lazy_dein.toml
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 source ~/.zshrc
