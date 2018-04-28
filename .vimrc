@@ -89,7 +89,7 @@ set showmatch
 set pumheight=10
 nnoremap j gj
 nnoremap k gk
-inoremap <silent> jj <ESC>l
+inoremap <silent> jj <ESC>
 nnoremap , :q<CR>
 
 nnoremap s <Nop>
