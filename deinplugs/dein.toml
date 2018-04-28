@@ -2,6 +2,45 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'Shougo/denite.nvim'
+hook_add='''
+    " Prefix key
+    nnoremap [denite] <Nop>
+    nmap <C-j> [denite]
+    " Keymap
+    " Current direcotry files
+    nnoremap <silent> [denite]<C-p> :<C-u>Denite file_rec<CR>
+    " Buffer files
+    nnoremap <silent> [denite]<C-b> :<C-u>Denite buffer<CR>
+    " Grep files
+    nnoremap <silent> [denite]<C-g> :<C-u>Denite -auto_preview grep<CR>
+    " Grep cursor word
+    nnoremap <silent> [denite]<C-]> :<C-u>DeniteCursorWord grep<CR>
+    " Recent files
+    nnoremap <silent> [denite]<C-r> :<C-u>Denite file_mru<CR>
+    " Outline
+    nnoremap <silent> [denite]<C-o> :<C-u>Denite outline<CR>
+    " Command history
+    nnoremap <silent> [denite]<C-n> :<C-u>Denite command_history<CR>
+    " Seach dotfiles
+    nnoremap <silent> [denite]<C-v> :<C-u>call denite#start([{'name': 'file_rec', 'args': ['~/.dotfiles']}])<CR>
+    " 上下移動を<C-N>, <C-P>
+    call denite#custom#map('normal', '<C-N>', '<denite:move_to_next_line>')
+    call denite#custom#map('normal', '<C-P>', '<denite:move_to_previous_line>')
+    call denite#custom#map('insert', '<C-N>', '<denite:move_to_next_line>')
+    call denite#custom#map('insert', '<C-P>', '<denite:move_to_previous_line>')
+    " 入力履歴移動を<C-J>, <C-K>
+    call denite#custom#map('insert', '<C-J>', '<denite:assign_next_text>')
+    call denite#custom#map('insert', '<C-K>', '<denite:assign_previous_text>')
+    " 横割りオープンを`<C-S>`
+    call denite#custom#map('insert', '<C-S>', '<denite:do_action:split>')
+    " 縦割りオープンを`<C-I>`
+    call denite#custom#map('insert', '<C-I>', '<denite:do_action:vsplit>')
+    " タブオープンを`<C-O>`
+    call denite#custom#map('insert', '<C-O>', '<denite:do_action:tabopen>')
+'''
+
+[[plugins]]
 repo = 'Shougo/deoplete.nvim'
 
 [[plugins]]

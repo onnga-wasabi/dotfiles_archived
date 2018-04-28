@@ -94,7 +94,7 @@ nnoremap , :q<CR>
 
 nnoremap s <Nop>
 nnoremap ss :split<CR>gg
-nnoremap sv :vsplit<CR>
+nnoremap sv :vsplit<CR>sl
 nnoremap sh <C-w>h
 nnoremap sj <C-w>j
 nnoremap sk <C-w>k
@@ -106,4 +106,4 @@ nnoremap sp gT
 nnoremap tm :terminal<CR>:set nonumber<CR>i
 tnoremap <ESC> <C-\><C-n>
 
-nnoremap tt :TagbarToggle<CR>
+nnoremap ttsh :TagbarToggle<CR>
