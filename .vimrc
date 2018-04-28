@@ -91,7 +91,7 @@ inoremap <silent> jj <ESC>l
 nnoremap , :q<CR>
 
 nnoremap s <Nop>
-nnoremap ss :split<CR>
+nnoremap ss :split<CR>gg
 nnoremap sv :vsplit<CR>
 nnoremap sh <C-w>h
 nnoremap sj <C-w>j
