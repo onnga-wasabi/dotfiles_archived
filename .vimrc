@@ -94,7 +94,7 @@ nnoremap , :q<CR>
 
 nnoremap s <Nop>
 nnoremap ss :split<CR>gg
-nnoremap sv :vsplit<CR>sl
+nnoremap sv :vsplit<CR><C-w>l
 nnoremap sh <C-w>h
 nnoremap sj <C-w>j
 nnoremap sk <C-w>k
