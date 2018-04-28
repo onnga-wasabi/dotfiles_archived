@@ -1,6 +1,6 @@
 "dein Scripts-----------------------------
 if &compatible
-  set nocompatible               " Be iMproved
+  set nocompatible 	      	   " Be iMproved
 endif
 
 set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
@@ -78,6 +78,8 @@ endfunction
 autocmd FileType python nnoremap <S-f> :call Autopep8()<CR>
 "end autopep8 config======================
 
+syntax on
+colorscheme koehler
 set nu
 set virtualedit=onemore
 set smartindent
