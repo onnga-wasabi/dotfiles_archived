@@ -77,8 +77,6 @@ endfunction
 
 autocmd FileType python nnoremap <S-f> :call Autopep8()<CR>
 "end autopep8 config======================
-syntax on 
-colorscheme elflord
 
 set nu
 set virtualedit=onemore
