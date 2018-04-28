@@ -2,7 +2,7 @@ cd `dirname $0`
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > ~/installer.sh
 sh ~/installer.sh ~/.cache/dein 
 rm ~/installer.sh
-mkdir ~/.config/nvim
+mkdir -p ~/.config/nvim
 ln -sfn ~/dotfiles/.vimrc ~/.config/nvim/init.vim
 ln -sfn ~/.config/nvim/init.vim ~/.vimrc
 mkdir -p ~/.cache/dein/plugs
