@@ -2,3 +2,4 @@
 setup.sh
 *.python-version
 *_amd64
+*-deb
