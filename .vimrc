@@ -111,4 +111,8 @@ nnoremap sp gT
 nnoremap tm :terminal<CR>:set nonumber<CR>i
 tnoremap <ESC> <C-\><C-n>
 
-nnoremap ttsh :TagbarToggle<CR>
+nnoremap tt :TagbarToggle<CR>sh
+
+"load template============================
+autocmd BufNewFile *.py -r $HOME/.cache/templates/python.py
+"end load template========================
