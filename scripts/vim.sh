@@ -8,10 +8,10 @@ ln -sfn ~/dotfiles/.vimrc ~/.config/nvim/init.vim
 ln -sfn ~/.config/nvim/init.vim ~/.vimrc
 
 mkdir -p ~/.cache/dein/plugs
-ln -sfn ~/dotfiles/deinplugs ~/.cache/dein/plugs
+ln -sfn ~/dotfiles/plugs/* ~/.cache/dein/plugs
 
 mkdir -p ~/.cache/templates
-ln -sfn ~/dotfiles/templates ~/.cache/templates
+ln -sfn ~/dotfiles/templates/* ~/.cache/templates
 
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 source ~/.zshrc
