@@ -28,7 +28,7 @@ export NVM_DIR="$HOME/.nvm"
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
 # cuda, cudnnenv
-export PATH="/usr/local/cuda:$PATH"
+export PATH="/usr/local/cuda/bin:$PATH"
 export LD_LIBRARY_PATH="$HOME/.cudnnenv/active/cuda/lib64:$LD_LIBRARY_PATH"
 export CPATH="$HOME/.cudnn/active/cuda/include:$CPATH"
 export LIBRARY_PATH="$HOME/.cudnn/active/cuda/lib64:$LIBARAY_PATH"
