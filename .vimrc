@@ -117,6 +117,13 @@ tnoremap <ESC> <C-\><C-n>
 nnoremap tt :TagbarToggle<CR><C-w>l
 nnoremap <Leader><Leader> :NERDTreeToggle<CR>
 
+nmap [figitive] <Nop>
+map <Leader>g [figitive]
+nmap <silent> [figitive]s :<C-u>Gstatus<CR>
+nmap <silent> [figitive]d :<C-u>Gdiff<CR>
+nmap <silent> [figitive]b :<C-u>Gblame<CR>
+nmap <silent> [figitive]l :<C-u>Glog<CR>
+
 "load template============================
 autocmd BufNewFile *.py -r $HOME/.cache/templates/python.py
 "end load template========================
