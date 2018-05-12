@@ -79,7 +79,8 @@ autocmd FileType python nnoremap <S-f> :call Autopep8()<CR>
 "end autopep8 config======================
 
 syntax on
-colorscheme koehler
+"colorscheme koehler
+"colorscheme slate
 set nu
 set virtualedit=onemore
 set smartindent
@@ -87,6 +88,9 @@ set autoindent
 set cursorline
 set showmatch
 set pumheight=10
+
+let mapleader = "\<Space>"
+
 nnoremap j gj
 nnoremap k gk
 inoremap <silent> jj <ESC>
@@ -110,8 +114,8 @@ nnoremap sn gt
 nnoremap sp gT
 nnoremap tm :terminal<CR>:set nonumber<CR>i
 tnoremap <ESC> <C-\><C-n>
-
-nnoremap tt :TagbarToggle<CR>sh
+nnoremap tt :TagbarToggle<CR><C-w>l
+nnoremap <Leader><Leader> :NERDTreeToggle<CR>
 
 "load template============================
 autocmd BufNewFile *.py -r $HOME/.cache/templates/python.py

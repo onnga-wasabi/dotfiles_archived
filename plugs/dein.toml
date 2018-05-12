@@ -78,3 +78,13 @@ hook_add='''
     call submode#map('bufmove', 'n', '', '+', '<C-w>+')
     call submode#map('bufmove', 'n', '', '-', '<C-w>-')
 '''
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add ='''
+    "close vim if lesf window is a NERDTree only
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+'''
+
+[[plugins]]
+repo = 'Xuyuanp/nerdtree-git-plugin'
