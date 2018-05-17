@@ -115,7 +115,7 @@ nnoremap sp gT
 nnoremap tm :terminal<CR>:set nonumber<CR>i
 tnoremap <ESC> <C-\><C-n>
 nnoremap tt :TagbarToggle<CR><C-w>l
-nnoremap <Leader><Leader> :NERDTreeToggle<CR>
+nnoremap <Leader><Leader> :NERDTree<CR>
 
 nmap [figitive] <Nop>
 map <Leader>g [figitive]
