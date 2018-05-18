@@ -80,7 +80,7 @@ autocmd FileType python nnoremap <S-f> :call Autopep8()<CR>
 
 syntax on
 "colorscheme koehler
-"colorscheme slate
+colorscheme slate
 set nu
 set virtualedit=onemore
 set smartindent

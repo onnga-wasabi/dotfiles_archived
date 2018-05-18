@@ -12,6 +12,7 @@ fi
 # Customize to your needs...
 PATH=$PATH:~/bin
 alias vim='nvim'
+alias checupy="python -c 'import chainer; chainer.print_runtime_info()'"
 
 # pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
@@ -35,10 +36,7 @@ export PATH="/usr/local/cuda/bin:$PATH"
 export LD_LIBRARY_PATH="$HOME/.cudnnenv/active/cuda/lib64:$LD_LIBRARY_PATH"
 export CPATH="$HOME/.cudnn/active/cuda/include:$CPATH"
 export LIBRARY_PATH="$HOME/.cudnn/active/cuda/lib64:$LIBARAY_PATH"
-export CUDA_HOME="/usr/local/cuda"
-
-# change cupy's cache directory
-export CUPY_CACHE_DIR=/data/wasabi
+export CUDA_HOME="/usr/local/cuda/"
 
 # ls colors
 export lscolors=gxfxcxdxbxegedabagacad
