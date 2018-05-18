@@ -14,6 +14,7 @@ mkdir -p ~/.cache/templates
 ln -sfn ~/dotfiles/templates/* ~/.cache/templates
 
 ln -sfn ~/dotfiles/.flake8 ~/.flake8
+ln -sfn ~/dotfiles/.pep8 ~/.pep8
 
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 source ~/.zshrc
