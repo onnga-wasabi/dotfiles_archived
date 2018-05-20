@@ -113,9 +113,13 @@ nnoremap st :tabnew<CR>
 nnoremap sn gt
 nnoremap sp gT
 nnoremap tm :terminal<CR>:set nonumber<CR>i
-tnoremap <ESC> <C-\><C-n>
 nnoremap tt :TagbarToggle<CR><C-w>l
 nnoremap <Leader><Leader> :NERDTree<CR>
+nnoremap <Leader>p :terminal python %<CR>:set nonumber<CR>
+
+tnoremap <ESC> <C-\><C-n>
+tnoremap , <C-\><C-n>
+tnoremap , <C-d>
 
 nmap [figitive] <Nop>
 map <Leader>g [figitive]
