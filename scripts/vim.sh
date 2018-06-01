@@ -13,8 +13,8 @@ ln -sfn ~/dotfiles/plugs/* ~/.cache/dein/plugs
 mkdir -p ~/.cache/templates
 ln -sfn ~/dotfiles/templates/* ~/.cache/templates
 
-ln -sfn ~/dotfiles/.flake8 ~/.flake8
-ln -sfn ~/dotfiles/.pep8 ~/.pep8
+ln -sfn ~/dotfiles/config/flake8 ~/config/flake8
+ln -sfn ~/dotfiles/config/pep8 ~/config/pep8
 
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 source ~/.zshrc
