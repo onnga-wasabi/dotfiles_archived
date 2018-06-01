@@ -5,7 +5,7 @@ if [ ! -e cuda-repo-ubuntu1604-9-1-local_9.1.85-1_amd64 ];then
     echo [Attention] download Base
     wget https://developer.nvidia.com/compute/cuda/9.1/Prod/local_installers/cuda-repo-ubuntu1604-9-1-local_9.1.85-1_amd64
 fi
-echo [Attention] install patch 1
+echo [Attention] install base
 sudo dpkg -i cuda-repo-ubuntu1604-9-1-local_9.1.85-1_amd64
 sudo apt-get update
 sudo apt-get -y install cuda

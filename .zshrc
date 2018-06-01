@@ -37,6 +37,7 @@ export LD_LIBRARY_PATH="$HOME/.cudnnenv/active/cuda/lib64:$LD_LIBRARY_PATH"
 export CPATH="$HOME/.cudnn/active/cuda/include:$CPATH"
 export LIBRARY_PATH="$HOME/.cudnn/active/cuda/lib64:$LIBARAY_PATH"
 export CUDA_HOME="/usr/local/cuda/"
+export CUPY_CACHE_DIR=/data/$USER
 
 # ls colors
 export lscolors=gxfxcxdxbxegedabagacad
