@@ -94,3 +94,11 @@ repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'mattn/sonictemplate-vim'
+hook_add ='''
+    let g:sonictemplate_vim_template_dir = [
+    	\ '~/.cache/templates'
+	\]
+'''

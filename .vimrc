@@ -116,6 +116,7 @@ nnoremap tm :terminal<CR>:set nonumber<CR>i
 nnoremap tt :TagbarToggle<CR><C-w>l
 nnoremap <Leader><Leader> :NERDTree<CR>
 nnoremap <Leader>p :split<CR><C-w>J:terminal python %<CR>:set nonumber<CR>
+nnoremap <Leader>t :Template 
 
 tnoremap <ESC> <C-\><C-n>
 tnoremap , <C-\><C-n>
@@ -129,5 +130,5 @@ nmap <silent> [figitive]b :<C-u>Gblame<CR>
 nmap <silent> [figitive]l :<C-u>Glog<CR>
 
 "load template============================
-autocmd BufNewFile *.py -r $HOME/.cache/templates/python.py
+"autocmd BufNewFile *.py -r $HOME/.cache/templates/python/base-simple.py
 "end load template========================
