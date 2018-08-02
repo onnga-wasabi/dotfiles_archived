@@ -90,6 +90,9 @@ set showmatch
 set pumheight=10
 
 let mapleader = "\<Space>"
+let maplocalleader = "."
+
+let g:tex_conceal=''
 
 nnoremap j gj
 nnoremap k gk
@@ -129,6 +132,18 @@ nmap <silent> [figitive]d :<C-u>Gdiff<CR>
 nmap <silent> [figitive]b :<C-u>Gblame<CR>
 nmap <silent> [figitive]l :<C-u>Glog<CR>
 
-"load template============================
-"autocmd BufNewFile *.py -r $HOME/.cache/templates/python/base-simple.py
-"end load template========================
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd BufNewFile,BufRead *.tex setlocal tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.html setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.js setlocal tabstop=2 softtabstop=2 shiftwidth=2
+augroup END
+
+filetype plugin on
+augroup setAutoCompile
+    autocmd!
+    autocmd BufWritePost *.tex :lcd %:h | :!latexmk %:p
+    autocmd BufWritePost *.c :lcd %:h | :!gcc %:p
+augroup END
