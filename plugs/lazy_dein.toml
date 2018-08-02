@@ -1,8 +1,4 @@
 [[plugins]]
-repo = 'zchee/deoplete-jedi'
-on_ft = 'python'
-
-[[plugins]]
 repo = 'majutsushi/tagbar'
 
 [[plugins]]
@@ -32,3 +28,10 @@ on_ft = ['markdown','mkd']
 hook_add = '''
   let g:previm_open_cmd = 'open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 '''
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html','css']
+
+[[plugins]]
+repo = 'zchee/deoplete-jedi'
