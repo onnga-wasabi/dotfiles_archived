@@ -147,3 +147,7 @@ augroup setAutoCompile
     autocmd BufWritePost *.tex :lcd %:h | :!latexmk %:p
     autocmd BufWritePost *.c :lcd %:h | :!gcc %:p
 augroup END
+
+set guicursor=
+" Workaround some broken plugins which set guicursor indiscriminately.
+autocmd OptionSet guicursor noautocmd set guicursor=
