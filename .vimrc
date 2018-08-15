@@ -50,37 +50,11 @@ let g:airline_theme = 'luna'
 
 "end vim-airline config===================
 
-"autopep8 config==========================
-function! Preserve(command)
-    " Save the last search.
-    let search = @/
-    " Save the current cursor position.
-    let cursor_position = getpos('.')
-    " Save the current window position.
-    normal! H
-    let window_position = getpos('.')
-    call setpos('.', cursor_position)
-    " Execute the command.
-    execute a:command
-    " Restore the last search.
-    let @/ = search
-    " Restore the previous window position.
-    call setpos('.', window_position)
-    normal! zt
-    " Restore the previous cursor position.
-    call setpos('.', cursor_position)
-endfunction
-
-function! Autopep8()
-    call Preserve(':silent %!autopep8 -')
-endfunction
-
-autocmd FileType python nnoremap <S-f> :call Autopep8()<CR>
-"end autopep8 config======================
-
 syntax on
 "colorscheme koehler
-colorscheme slate
+"colorscheme slate
+set background=dark
+colorscheme solarized
 set nu
 set virtualedit=onemore
 set smartindent
@@ -131,6 +105,10 @@ nmap <silent> [figitive]s :<C-u>Gstatus<CR>
 nmap <silent> [figitive]d :<C-u>Gdiff<CR>
 nmap <silent> [figitive]b :<C-u>Gblame<CR>
 nmap <silent> [figitive]l :<C-u>Glog<CR>
+
+set tabstop=2
+set shiftwidth=2
+set expandtab
 
 augroup fileTypeIndent
     autocmd!
