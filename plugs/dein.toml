@@ -64,7 +64,7 @@ repo = 'cohama/lexima.vim'
 repo = 'Yggdroot/indentLine'
 
 [[plugins]]
-repo = 'tomasr/molokai'
+repo = 'flazz/vim-colorschemes'
 
 [[plugins]]
 repo = 'w0rp/ale'
@@ -76,6 +76,11 @@ hook_add='''
 	    \'c':['gcc'],
 	    \}
     let g:ale_sign_column_always = 1
+    let g:ale_fixers = {
+	    \'python':['autopep8'],
+	    \'c':['clang-format'],
+	    \}
+    let g:ale_fix_on_save = 1
 '''
 
 [[plugins]]
