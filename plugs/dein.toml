@@ -40,6 +40,13 @@ hook_add='''
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
+hook_add='''
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#disable_auto_complete = 1
+  inoremap <expr> <C-k>  deoplete#mappings#manual_complete()
+  set splitbelow
+  autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+'''
 
 [[plugins]]
 repo = 'vim-airline/vim-airline'
@@ -66,6 +73,7 @@ hook_add='''
 	    \'python':['flake8','autopep8'],
 	    \'HTML':['HTMLHint'],
 	    \'JavaScript':['eslint'],
+	    \'c':['gcc'],
 	    \}
     let g:ale_sign_column_always = 1
 '''
