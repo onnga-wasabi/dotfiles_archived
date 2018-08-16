@@ -80,7 +80,7 @@ hook_add='''
 	    \'python':['autopep8'],
 	    \'c':['clang-format'],
 	    \}
-    let g:ale_fix_on_save = 1
+    nmap <S-f> <Plug>(ale_fix)
 '''
 
 [[plugins]]
