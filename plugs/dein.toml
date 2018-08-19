@@ -1,7 +1,4 @@
 [[plugins]]
-repo = 'Shougo/dein.vim'
-
-[[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add='''
     " Prefix key
@@ -100,8 +97,12 @@ hook_add='''
 repo = 'scrooloose/nerdtree'
 hook_add ='''
     "close vim if lesf window is a NERDTree only
+    let g:nerdtree_tabs_open_on_console_startup=1
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 '''
+
+[[plugins]]
+repo = 'jistr/vim-nerdtree-tabs'
 
 [[plugins]]
 repo = 'Xuyuanp/nerdtree-git-plugin'
