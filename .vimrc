@@ -92,7 +92,7 @@ nnoremap sp gT
 nnoremap tm :terminal<CR>:set nonumber<CR>i
 nnoremap tt :TagbarToggle<CR><C-w>l
 nnoremap <Leader><Leader> :NERDTree<CR>
-nnoremap <Leader>p :split<CR><C-w>J:terminal python %<CR>:set nonumber<CR>
+nnoremap <Leader>p :split<CR>:terminal python %<CR>:set nonumber<CR>
 nnoremap <Leader>t :Template 
 
 tnoremap <ESC> <C-\><C-n>
