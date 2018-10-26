@@ -71,12 +71,19 @@ hook_add='''
 	    \'HTML':['HTMLHint'],
 	    \'JavaScript':['eslint'],
 	    \'c':['gcc'],
+	    \'cpp':['gcc'],
+      \'scala':['scalastyle'],
+      \'go':['gofmt'],
 	    \}
     let g:ale_sign_column_always = 1
     let g:ale_fixers = {
 	    \'python':['autopep8'],
 	    \'c':['clang-format'],
+	    \'cpp':['clang-format'],
+      \'scala':['scalastyle'],
+      \'go':['gofmt'],
 	    \}
+    let g:ale_use_global_executables = 1
     nmap <S-f> <Plug>(ale_fix)
 '''
 
@@ -97,7 +104,7 @@ hook_add='''
 repo = 'scrooloose/nerdtree'
 hook_add ='''
     "close vim if lesf window is a NERDTree only
-    let g:nerdtree_tabs_open_on_console_startup=1
+    let g:nerdtree_tabs_open_on_console_startup=0
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 '''
 
@@ -145,4 +152,33 @@ hook_add ='''
     let g:vimtex_view_general_viewer
       \ = '/Applications/Skim.app/Contents/SharedSupport/displayline'
     let g:vimtex_view_general_options = '-r @line @pdf @tex'
+'''
+
+[[plugins]]
+repo = 'derekwyatt/vim-scala'
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+
+[[plugins]]
+repo = 'Shougo/unite-outline'
+hook_add ='''
+nnoremap <silent> tr :<C-u>Unite -no-quit -vertical -winwidth=40 outline<CR>
+
+" unite-outline の自動更新
+let g:unite_source_outline_filetype_options = {
+      \ '*': {
+      \   'auto_update': 1,
+      \   'auto_update_event': 'write',
+      \ },
+      \ 'cpp': {
+      \   'ignore_types': ['enum', 'typedef', 'macro'],
+      \ },
+      \ 'javascript': {
+      \   'ignore_types': ['comment'],
+      \ },
+      \ 'markdown': {
+      \   'auto_update_event': 'hold',
+      \ },
+      \}
 '''

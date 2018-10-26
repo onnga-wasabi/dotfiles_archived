@@ -70,8 +70,10 @@ let g:tex_conceal=''
 
 nnoremap j gj
 nnoremap k gk
-inoremap <silent> jj <ESC>
 nnoremap , :q<CR>
+
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
 
 nnoremap s <Nop>
 nnoremap ss :split<CR>gg
@@ -113,7 +115,7 @@ set expandtab
 augroup fileTypeIndent
     autocmd!
     autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
-    autocmd BufNewFile,BufRead *.tex setlocal tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd BufNewFile,BufRead *.tex setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.html setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.js setlocal tabstop=2 softtabstop=2 shiftwidth=2
@@ -124,6 +126,7 @@ augroup setAutoCompile
     autocmd!
     autocmd BufWritePost *.tex :lcd %:h | :!latexmk %:p
     autocmd BufWritePost *.c :lcd %:h | :!gcc %:p
+    autocmd BufWritePost *.cpp :lcd %:h | :!g++ %:p
 augroup END
 
 set guicursor=
