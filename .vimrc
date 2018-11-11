@@ -70,7 +70,7 @@ let g:tex_conceal=''
 
 nnoremap j gj
 nnoremap k gk
-nnoremap , :q<CR>
+nnoremap , :bd<CR>
 
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
@@ -89,13 +89,14 @@ nnoremap sH <C-w>H
 nnoremap sr <C-w>r
 nnoremap sw <C-w>w
 nnoremap st :tabnew<CR>
-nnoremap sn gt
-nnoremap sp gT
 nnoremap tm :terminal<CR>:set nonumber<CR>i
 nnoremap tt :TagbarToggle<CR><C-w>l
 nnoremap <Leader><Leader> :NERDTree<CR>
 nnoremap <Leader>p :split<CR>:terminal python %<CR>:set nonumber<CR>
 nnoremap <Leader>t :Template 
+nnoremap <Leader>b :b  
+nnoremap sn :bn<CR>
+nnoremap sp :bp<CR>
 
 tnoremap <ESC> <C-\><C-n>
 tnoremap , <C-\><C-n>

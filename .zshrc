@@ -60,3 +60,4 @@ export GOPATH=$HOME/go
 PATH=$PATH:$GOPATH/bin
 
 alias dict="python /Users/wasabi/workspace/private/cli-dict/ejdic-hand-sqlite/dict.py -q"
+alias dirs="dirs -v"
