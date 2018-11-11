@@ -95,8 +95,8 @@ nnoremap <Leader><Leader> :NERDTree<CR>
 nnoremap <Leader>p :split<CR>:terminal python %<CR>:set nonumber<CR>
 nnoremap <Leader>t :Template 
 nnoremap <Leader>b :b  
-nnoremap sn :bn<CR>
-nnoremap sp :bp<CR>
+nnoremap sn :bp<CR>
+nnoremap sp :bn<CR>
 
 tnoremap <ESC> <C-\><C-n>
 tnoremap , <C-\><C-n>
