@@ -55,6 +55,7 @@ syntax on
 "colorscheme slate
 set background=dark
 colorscheme solarized
+colorscheme slate
 set nu
 set virtualedit=onemore
 set smartindent
