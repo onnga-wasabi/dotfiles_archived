@@ -51,11 +51,9 @@ let g:airline_theme = 'luna'
 "end vim-airline config===================
 
 syntax on
-"colorscheme koehler
-"colorscheme slate
 set background=dark
 colorscheme solarized
-colorscheme slate
+
 set nu
 set virtualedit=onemore
 set smartindent
