@@ -98,8 +98,8 @@ hook_add='''
 	    \}
     let g:ale_use_global_executables = 1
     nmap <S-f> <Plug>(ale_fix)"
-    let g:ale_python_flake8_args = '--max-line-length=120'
-    let g:ale_python_autopep8_args = '--max-line-length=120'
+    let g:ale_python_flake8_args = '--max-line-length=150'
+    let g:ale_python_autopep8_args = '--max-line-length=150'
 '''
 
 [[plugins]]
