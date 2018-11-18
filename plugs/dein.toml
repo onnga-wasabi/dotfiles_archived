@@ -16,7 +16,7 @@ hook_add='''
     " Command history
     nnoremap <silent> [denite]<C-n> :<C-u>Denite command_history<CR>
     " Seach dotfiles
-    nnoremap <silent> [denite]<C-v> :<C-u>call denite#start([{'name': 'file_rec', 'args': ['~/dotfiles']}])<CR>
+    nnoremap <silent> [denite]<C-d> :<C-u>call denite#start([{'name': 'file_rec', 'args': ['~/dotfiles']}])<CR>
     " Seach dotfiles
     nnoremap <silent> [denite]<C-w> :<C-u>call denite#start([{'name': 'file_rec', 'args': ['~/workspace']}])<CR>
     " 上下移動を<C-N>, <C-P>
@@ -27,19 +27,15 @@ hook_add='''
     " 入力履歴移動を<C-J>, <C-K>
     call denite#custom#map('insert', '<C-J>', '<denite:assign_next_text>')
     call denite#custom#map('insert', '<C-K>', '<denite:assign_previous_text>')
-    " 横割りオープンを`<C-S>`
-    call denite#custom#map('insert', '<C-S>', '<denite:do_action:split>')
-    " 縦割りオープンを`<C-I>`
-    call denite#custom#map('insert', '<C-I>', '<denite:do_action:vsplit>')
-    " タブオープンを`<C-O>`
-    call denite#custom#map('insert', '<C-O>', '<denite:do_action:tabopen>')
+    " 縦割りオープンを`<C-o>`
+    call denite#custom#map('insert', '<C-o>', '<denite:do_action:vsplit>')
     call denite#custom#option('default', 'prompt', '>')
     call denite#custom#source('file_rec', 'matchers', ['matcher_fuzzy','matcher_ignore_globs'])
     call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
 	      \ [
         \ '.git/', '.ropeproject/', '__pycache__/',
 	      \ 'venv/', 'images/', '*.min.*', 'img/', 'fonts/',
-        \ '*.png',
+        \ '*.png', '*.npz',
         \ ])
     if executable('rg')
       call denite#custom#var('file_rec', 'command',
