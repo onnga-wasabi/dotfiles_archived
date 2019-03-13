@@ -50,9 +50,44 @@ repo = 'zchee/deoplete-go'
 on_ft = 'go'
 
 [[plugins]]
+repo = 'poppyschmo/deoplete-latex'
+on_ft = 'tex'
+hook_add = '''
+  let g:deoplete#sources#latex#include_web_math = 1  " default 0
+'''
+
+[[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
 
 [[plugins]]
 repo = 'huawenyu/neogdb.vim'
 on_ft = ['c', 'cpp']
+
+[[plugins]]
+repo = 'lervag/vimtex'
+on_ft = ['tex']
+hook_add ='''
+  let g:vimtex_compiler_latexmk_engines = { '_' : '-pdfdvi' }
+  let g:vimtex_compiler_latexmk = {
+    \ 'background': 1,
+    \ 'build_dir': '',
+    \ 'continuous': 1,
+    \ 'options': [
+    \    '-pdfdvi', 
+    \    '-verbose',
+    \    '-file-line-error',
+    \    '-synctex=1',
+    \    '-interaction=nonstopmode',
+    \    '-pdf',
+    \],
+    \}
+
+  let g:vimtex_view_general_viewer
+    \ = '/Applications/Skim.app/Contents/SharedSupport/displayline'
+  let g:vimtex_view_general_options = '-r @line @pdf @tex'
+  if has('nvim')
+    let g:vimtex_compiler_progname
+          \ = 'nvr'
+  endif
+'''

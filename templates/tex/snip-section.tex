@@ -1,0 +1,9 @@
+% chapter{hoge} {chapter}
+\expandafter\ifx\csname ifdraft\endcsname\relax
+  \documentclass[a4,epsf,12pt]{jreport}
+  \begin{document}
+\fi
+
+\expandafter\ifx\csname ifdraft\endcsname\relax
+  \end{document}
+\fi

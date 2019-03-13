@@ -67,6 +67,7 @@ let maplocalleader = "."
 
 let g:tex_conceal=''
 
+inoremap <C-c> <ESC>
 nnoremap j gj
 nnoremap k gk
 nnoremap , :bd<CR>
@@ -124,7 +125,6 @@ augroup END
 filetype plugin on
 augroup setAutoCompile
     autocmd!
-    autocmd BufWritePost *.tex :lcd %:h | :!latexmk %:p
     autocmd BufWritePost *.c :lcd %:h | :!gcc %:p
     autocmd BufWritePost *.cpp :lcd %:h | :!g++ %:p
 augroup END
@@ -132,3 +132,39 @@ augroup END
 set guicursor=
 " Workaround some broken plugins which set guicursor indiscriminately.
 autocmd OptionSet guicursor noautocmd set guicursor=
+
+" input method
+let s:JapaneseIM = 'com.google.inputmethod.Japanese.base'
+let s:AsciiIM = 'com.apple.keylayout.US'
+
+function! s:ImActivateFunc(active)
+  if a:active
+    call system('swim use ' . s:JapaneseIM)
+  else
+    call system('swim use ' . s:AsciiIM)
+  endif
+endfunction
+
+function! s:ImStatusFunc()
+  return system('swim list --current') is# s:JapaneseIM . "\n"
+endfunction
+
+let s:ImStatus = 0
+
+function! s:insertEnter()
+  call s:ImActivateFunc(s:ImStatus)
+  call s:ImStatusFunc()
+endfunction
+"
+function! s:insertLeave()
+  let s:ImStatus = s:ImStatusFunc()
+  call s:ImActivateFunc(0)
+  call s:ImStatusFunc()
+endfunction
+
+augroup ime
+  autocmd!
+  autocmd InsertEnter * call s:insertEnter()
+  autocmd InsertLeave * call s:insertLeave()
+augroup END
+autocmd InsertLeave * w
