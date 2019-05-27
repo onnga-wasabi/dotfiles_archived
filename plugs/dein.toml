@@ -170,3 +170,6 @@ let g:unite_source_outline_filetype_options = {
       \ },
       \}
 '''
+
+[[plugins]]
+repo = 'tpope/vim-rhubarb'
