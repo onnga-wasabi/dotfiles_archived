@@ -122,12 +122,12 @@ augroup fileTypeIndent
     autocmd BufNewFile,BufRead *.js setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
-filetype plugin on
-augroup setAutoCompile
-    autocmd!
-    autocmd BufWritePost *.c :lcd %:h | :!gcc %:p
-    autocmd BufWritePost *.cpp :lcd %:h | :!g++ %:p
-augroup END
+"filetype plugin on
+"augroup setAutoCompile
+"    autocmd!
+"    autocmd BufWritePost *.c :lcd %:h | :!gcc %:p
+"    autocmd BufWritePost *.cpp :lcd %:h | :!g++ %:p
+"augroup END
 
 set guicursor=
 " Workaround some broken plugins which set guicursor indiscriminately.
