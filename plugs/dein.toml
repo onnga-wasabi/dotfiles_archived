@@ -6,7 +6,7 @@ hook_add='''
     nmap <C-j> [denite]
     " Keymap
     " Current direcotry files
-    nnoremap <silent> [denite]<C-p> :<C-u>Denite file_rec<CR>
+    nnoremap <silent> [denite]<C-p> :<C-u>Denite file/rec<CR>
     " Buffer files
     nnoremap <silent> [denite]<C-b> :<C-u>Denite buffer<CR>
     " Grep files
@@ -16,9 +16,9 @@ hook_add='''
     " Command history
     nnoremap <silent> [denite]<C-n> :<C-u>Denite command_history<CR>
     " Seach dotfiles
-    nnoremap <silent> [denite]<C-d> :<C-u>call denite#start([{'name': 'file_rec', 'args': ['~/dotfiles']}])<CR>
+    nnoremap <silent> [denite]<C-d> :<C-u>call denite#start([{'name': 'file/rec', 'args': ['~/dotfiles']}])<CR>
     " Seach dotfiles
-    nnoremap <silent> [denite]<C-w> :<C-u>call denite#start([{'name': 'file_rec', 'args': ['~/workspace']}])<CR>
+    nnoremap <silent> [denite]<C-w> :<C-u>call denite#start([{'name': 'file/rec', 'args': ['~/workspace']}])<CR>
     " 上下移動を<C-N>, <C-P>
     call denite#custom#map('normal', '<C-N>', '<denite:move_to_next_line>')
     call denite#custom#map('normal', '<C-P>', '<denite:move_to_previous_line>')
@@ -30,7 +30,7 @@ hook_add='''
     " 縦割りオープンを`<C-o>`
     call denite#custom#map('insert', '<C-o>', '<denite:do_action:vsplit>')
     call denite#custom#option('default', 'prompt', '>')
-    call denite#custom#source('file_rec', 'matchers', ['matcher_fuzzy','matcher_ignore_globs'])
+    call denite#custom#source('file/rec', 'matchers', ['matcher_fuzzy','matcher_ignore_globs'])
     call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
 	      \ [
         \ '.git/', '.ropeproject/', '__pycache__/',
@@ -40,20 +40,10 @@ hook_add='''
         \ '*.blg', '*.eps'
         \ ])
     if executable('rg')
-      call denite#custom#var('file_rec', 'command',
+      call denite#custom#var('file/rec', 'command',
             \ ['rg', '--files', '--glob', '!.git'])
       call denite#custom#var('grep', 'command', ['rg'])
     endif
-'''
-
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-hook_add='''
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#disable_auto_complete = 1
-  inoremap <expr> <C-k>  deoplete#mappings#manual_complete()
-  set splitbelow
-  autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 '''
 
 [[plugins]]
@@ -73,32 +63,6 @@ repo = 'Yggdroot/indentLine'
 
 [[plugins]]
 repo = 'flazz/vim-colorschemes'
-
-[[plugins]]
-repo = 'w0rp/ale'
-hook_add='''
-    let g:ale_linters = {
-	    \'python':['flake8','autopep8'],
-	    \'HTML':['HTMLHint'],
-	    \'JavaScript':['eslint'],
-	    \'c':['gcc'],
-	    \'cpp':['gcc'],
-      \'scala':['scalastyle'],
-      \'go':['gofmt'],
-	    \}
-    let g:ale_sign_column_always = 1
-    let g:ale_fixers = {
-	    \'python':['autopep8'],
-	    \'c':['clang-format'],
-	    \'cpp':['clang-format'],
-      \'scala':['scalastyle'],
-      \'go':['gofmt'],
-	    \}
-    let g:ale_use_global_executables = 1
-    nmap <S-f> <Plug>(ale_fix)"
-    let g:ale_python_flake8_args = '--max-line-length=150'
-    let g:ale_python_autopep8_args = '--max-line-length=150'
-'''
 
 [[plugins]]
 repo = 'kana/vim-submode'
@@ -173,3 +137,29 @@ let g:unite_source_outline_filetype_options = {
 
 [[plugins]]
 repo = 'tpope/vim-rhubarb'
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+build = './install.sh nightly'
+hooK_add ='''
+  set signcolumn=yes
+'''
+
+[[plugins]]
+repo = 'w0rp/ale'
+hook_add='''
+    let g:ale_sign_column_always = 1
+    let g:ale_fixers = {
+          \'python':['autopep8'],
+          \'c':['clangd'],
+          \'cpp':['clangd'],
+          \'scala':['scalastyle'],
+          \'go':['gofmt'],
+          \'tex':['latexindent'],
+    \}
+    let g:ale_use_global_executables = 1
+    nmap <S-f> <Plug>(ale_fix)"
+    let g:ale_python_flake8_args = '--max-line-length=150'
+    let g:ale_python_autopep8_args = '--max-line-length=150'
+'''
+
