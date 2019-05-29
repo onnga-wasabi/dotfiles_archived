@@ -62,3 +62,4 @@ PATH=$PATH:$GOPATH/bin
 alias dict="python /Users/wasabi/workspace/private/cli-dict/ejdic-hand-sqlite/dict.py -q"
 alias dirs="dirs -v"
 alias nvimtex="NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim"
+export PATH="/usr/local/opt/llvm/bin:$PATH"
