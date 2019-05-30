@@ -45,16 +45,6 @@ hook_add='''
 '''
 
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-hook_add='''
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#disable_auto_complete = 1
-  inoremap <expr> <C-k>  deoplete#mappings#manual_complete()
-  set splitbelow
-  autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-'''
-
-[[plugins]]
 repo = 'vim-airline/vim-airline'
 
 [[plugins]]
@@ -71,32 +61,6 @@ repo = 'Yggdroot/indentLine'
 
 [[plugins]]
 repo = 'flazz/vim-colorschemes'
-
-[[plugins]]
-repo = 'w0rp/ale'
-hook_add='''
-    let g:ale_linters = {
-	    \'python':['flake8','autopep8'],
-	    \'HTML':['HTMLHint'],
-	    \'JavaScript':['eslint'],
-	    \'c':['gcc'],
-	    \'cpp':['gcc'],
-      \'scala':['scalastyle'],
-      \'go':['gofmt'],
-	    \}
-    let g:ale_sign_column_always = 1
-    let g:ale_fixers = {
-	    \'python':['autopep8'],
-	    \'c':['clang-format'],
-	    \'cpp':['clang-format'],
-      \'scala':['scalastyle'],
-      \'go':['gofmt'],
-	    \}
-    let g:ale_use_global_executables = 1
-    nmap <S-f> <Plug>(ale_fix)"
-    let g:ale_python_flake8_args = '--config ~/.config/flake8'
-    let g:ale_python_autopep8_options = '--ignore-local-config'
-'''
 
 [[plugins]]
 repo = 'kana/vim-submode'
@@ -166,4 +130,29 @@ let g:unite_source_outline_filetype_options = {
       \   'auto_update_event': 'hold',
       \ },
       \}
+'''
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+build = './install.sh nightly'
+hooK_add ='''
+  set signcolumn=yes
+'''
+
+[[plugins]]
+repo = 'w0rp/ale'
+hook_add='''
+    let g:ale_sign_column_always = 1
+    let g:ale_fixers = {
+          \'python':['autopep8'],
+          \'c':['clang-format'],
+          \'cpp':['clang-format'],
+          \'scala':['scalastyle'],
+          \'go':['gofmt'],
+          \'tex':['latexindent'],
+    \}
+    let g:ale_use_global_executables = 1
+    nmap <S-f> <Plug>(ale_fix)"
+    let g:ale_python_flake8_args = '--max-line-length=150'
+    let g:ale_python_autopep8_args = '--max-line-length=150'
 '''

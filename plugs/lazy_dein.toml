@@ -34,22 +34,6 @@ repo = 'mattn/emmet-vim'
 on_ft = ['html','css']
 
 [[plugins]]
-repo = 'zchee/deoplete-jedi'
-on_ft = 'python'
-
-[[plugins]]
-on_ft = ['c', 'cpp', 'cmake']
-repo = 'zchee/deoplete-clang'
-hook_source = '''
-  let g:deoplete#sources#clang#libclang_path = '/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
-  let g:deoplete#sources#clang#clang_header = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang'
-'''
-
-[[plugins]]
-repo = 'zchee/deoplete-go'
-on_ft = 'go'
-
-[[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
 
