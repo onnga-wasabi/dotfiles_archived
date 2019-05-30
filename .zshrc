@@ -12,6 +12,8 @@ fi
 # Customize to your needs...
 PATH=$PATH:~/bin
 PAHT=$PATH:/opt/activator-dist-1.3.7
+# nvim
+alias vim='nvim'
 
 # pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
@@ -37,27 +39,11 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg
 autoload -U compinit
 compinit
 
-source ~/.zshrc.local
+# cuda, cudnnenv
+export PATH="/usr/local/cuda/bin:$PATH"
+export LD_LIBRARY_PATH="$HOME/.cudnnenv/active/cuda/lib64:$LD_LIBRARY_PATH"
+export CPATH="$HOME/.cudnn/active/cuda/include:$CPATH"
+export LIBRARY_PATH="$HOME/.cudnn/active/cuda/lib64:$LIBARAY_PATH"
+export CUDA_HOME="/usr/local/cuda/"
 
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-PATH=$PATH:/usr/local/lib/stanford-corenlp-full-2013-06-20
-
-PATH=$PATH:/Applications/MRIcron/mricron.app/Contents/MacOS
 alias checupy="python -c 'import chainer; chainer.print_runtime_info()'"
-
-# nvim
-alias vim='nvim'
-
-# Scala
-export PATH="${HOME}/.scalaenv/bin:${PATH}"
-eval "$(scalaenv init -)"
-
-export GOENV_ROOT=$HOME/.goenv
-export PATH=$GOENV_ROOT/bin:$PATH
-eval "$(goenv init -)"
-
-export GOPATH=$HOME/go
-PATH=$PATH:$GOPATH/bin
-
-alias dict="python /Users/wasabi/workspace/private/cli-dict/ejdic-hand-sqlite/dict.py -q"
-alias dirs="dirs -v"
