@@ -29,6 +29,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # tmux
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+alias ta="tmux a"
 
 # ls colors
 export lscolors=gxfxcxdxbxegedabagacad
@@ -63,3 +64,32 @@ alias dict="python /Users/wasabi/workspace/private/cli-dict/ejdic-hand-sqlite/di
 alias dirs="dirs -v"
 alias nvimtex="NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
+export LC_ALL="en_US.UTF-8"
+export LANG=C
+export PATH="$HOME/.config/nvim/nvim-osx64/bin:$PATH"
+
+alias g++="clang++"
+alias gcc="clang"
+
+# Util functoins
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf) &&
+  cd "$dir"
+}
+
+# gitで一発でcheckout
+fbr() {
+  local branches branch
+  branches=$(git branch --all | grep -v HEAD) &&
+  branch=$(echo "$branches" | fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+export SLACK_API_TOKEN="xoxp-278479033911-288312648849-289221720370-8f3bdb6f91b7870c1cf794f9442550e0"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#aws 
+alias shaws="sh ~/workspace/intern/eseikatu/aws.sh"
+
+export PIPENV_VENV_IN_PROJECT=1

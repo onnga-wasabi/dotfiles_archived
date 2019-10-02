@@ -2,19 +2,6 @@
 repo = 'majutsushi/tagbar'
 
 [[plugins]]
-repo = 'davidhalter/jedi-vim'
-on_ft = 'python'
-hook_add = '''
-  let g:jedi#force_py_version = 3
-  let g:jedi#auto_initialization = 1
-  let g:jedi#popup_select_first = 0
-  let g:jedi#popup_on_dot = 0
-  let g:jedi#show_call_signatures = 1
-  let g:jedi#completions_command = "<C-k>"
-  autocmd FileType python setlocal completeopt-=preview
-'''
-
-[[plugins]]
 repo = 'plytophogy/vim-virtualenv'
 on_ft = 'python'
 
@@ -32,6 +19,24 @@ hook_add = '''
 [[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = ['html','css']
+hook_add="""
+  let g:user_emmet_leader_key='<c-y>'
+  imap   <C-y>o   <plug>(emmet-expand-abbr)
+  imap   <C-y>;   <plug>(emmet-expand-word)
+  imap   <C-y>u   <plug>(emmet-update-tag)
+  imap   <C-y>d   <plug>(emmet-balance-tag-inward)
+  imap   <C-y>D   <plug>(emmet-balance-tag-outward)
+  imap   <C-y>n   <plug>(emmet-move-next)
+  imap   <C-y>N   <plug>(emmet-move-prev)
+  imap   <C-y>i   <plug>(emmet-image-size)
+  imap   <C-y>/   <plug>(emmet-toggle-comment)
+  imap   <C-y>j   <plug>(emmet-split-join-tag)
+  imap   <C-y>k   <plug>(emmet-remove-tag)
+  imap   <C-y>a   <plug>(emmet-anchorize-url)
+  imap   <C-y>A   <plug>(emmet-anchorize-summary)
+  imap   <C-y>m   <plug>(emmet-merge-lines)
+  imap   <C-y>c   <plug>(emmet-code-pretty)
+"""
 
 [[plugins]]
 repo = 'cespare/vim-toml'
